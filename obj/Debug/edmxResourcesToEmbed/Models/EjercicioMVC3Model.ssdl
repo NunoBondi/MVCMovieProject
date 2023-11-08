@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EjercicioMVC3Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EjercicioMVC3ModelStoreContainer">
+    <EntitySet Name="Actores" EntityType="EjercicioMVC3Model.Store.Actores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Directores" EntityType="EjercicioMVC3Model.Store.Directores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Peliculas" EntityType="EjercicioMVC3Model.Store.Peliculas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Repartos" EntityType="EjercicioMVC3Model.Store.Repartos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DirectorPelicula" Association="EjercicioMVC3Model.Store.DirectorPelicula">
+      <End Role="Director" EntitySet="Directores" />
+      <End Role="Pelicula" EntitySet="Peliculas" />
+    </AssociationSet>
+    <AssociationSet Name="PeliculaReparto" Association="EjercicioMVC3Model.Store.PeliculaReparto">
+      <End Role="Pelicula" EntitySet="Peliculas" />
+      <End Role="Reparto" EntitySet="Repartos" />
+    </AssociationSet>
+    <AssociationSet Name="ActorReparto" Association="EjercicioMVC3Model.Store.ActorReparto">
+      <End Role="Actor" EntitySet="Actores" />
+      <End Role="Reparto" EntitySet="Repartos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Actores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreActor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Directores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreDirector" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Peliculas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estreno" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nacion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Idioma" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Resumen" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Observacion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DirectorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Repartos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Personaje" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PeliculaId" Type="int" Nullable="false" />
+    <Property Name="ActorId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="DirectorPelicula">
+    <End Role="Director" Type="EjercicioMVC3Model.Store.Directores" Multiplicity="1" />
+    <End Role="Pelicula" Type="EjercicioMVC3Model.Store.Peliculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Director">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pelicula">
+        <PropertyRef Name="DirectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PeliculaReparto">
+    <End Role="Pelicula" Type="EjercicioMVC3Model.Store.Peliculas" Multiplicity="1" />
+    <End Role="Reparto" Type="EjercicioMVC3Model.Store.Repartos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pelicula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparto">
+        <PropertyRef Name="PeliculaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActorReparto">
+    <End Role="Actor" Type="EjercicioMVC3Model.Store.Actores" Multiplicity="1" />
+    <End Role="Reparto" Type="EjercicioMVC3Model.Store.Repartos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparto">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

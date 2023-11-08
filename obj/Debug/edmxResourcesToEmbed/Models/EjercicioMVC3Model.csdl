@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EjercicioMVC3Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="EjercicioMVC3ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actores" EntityType="EjercicioMVC3Model.Actor" />
+    <EntitySet Name="Directores" EntityType="EjercicioMVC3Model.Director" />
+    <EntitySet Name="Peliculas" EntityType="EjercicioMVC3Model.Pelicula" />
+    <EntitySet Name="Repartos" EntityType="EjercicioMVC3Model.Reparto" />
+    <AssociationSet Name="DirectorPelicula" Association="EjercicioMVC3Model.DirectorPelicula">
+      <End Role="Director" EntitySet="Directores" />
+      <End Role="Pelicula" EntitySet="Peliculas" />
+    </AssociationSet>
+    <AssociationSet Name="PeliculaReparto" Association="EjercicioMVC3Model.PeliculaReparto">
+      <End Role="Pelicula" EntitySet="Peliculas" />
+      <End Role="Reparto" EntitySet="Repartos" />
+    </AssociationSet>
+    <AssociationSet Name="ActorReparto" Association="EjercicioMVC3Model.ActorReparto">
+      <End Role="Actor" EntitySet="Actores" />
+      <End Role="Reparto" EntitySet="Repartos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Actor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreActor" Type="String" Nullable="false" />
+    <Property Name="Nacion" Type="String" Nullable="false" />
+    <NavigationProperty Name="Repartos" Relationship="EjercicioMVC3Model.ActorReparto" FromRole="Actor" ToRole="Reparto" />
+  </EntityType>
+  <EntityType Name="Director">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreDirector" Type="String" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="String" Nullable="false" />
+    <Property Name="Nacion" Type="String" Nullable="false" />
+    <NavigationProperty Name="Peliculas" Relationship="EjercicioMVC3Model.DirectorPelicula" FromRole="Director" ToRole="Pelicula" />
+  </EntityType>
+  <EntityType Name="Pelicula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" Nullable="false" />
+    <Property Name="Estreno" Type="String" Nullable="false" />
+    <Property Name="Nacion" Type="String" Nullable="false" />
+    <Property Name="Idioma" Type="String" Nullable="false" />
+    <Property Name="Color" Type="String" Nullable="false" />
+    <Property Name="Resumen" Type="String" Nullable="false" />
+    <Property Name="Observacion" Type="String" Nullable="false" />
+    <NavigationProperty Name="Director" Relationship="EjercicioMVC3Model.DirectorPelicula" FromRole="Pelicula" ToRole="Director" />
+    <Property Name="DirectorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Repartos" Relationship="EjercicioMVC3Model.PeliculaReparto" FromRole="Pelicula" ToRole="Reparto" />
+  </EntityType>
+  <EntityType Name="Reparto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Personaje" Type="String" Nullable="false" />
+    <NavigationProperty Name="Pelicula" Relationship="EjercicioMVC3Model.PeliculaReparto" FromRole="Reparto" ToRole="Pelicula" />
+    <Property Name="PeliculaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Actor" Relationship="EjercicioMVC3Model.ActorReparto" FromRole="Reparto" ToRole="Actor" />
+    <Property Name="ActorId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="DirectorPelicula">
+    <End Type="EjercicioMVC3Model.Director" Role="Director" Multiplicity="1" />
+    <End Type="EjercicioMVC3Model.Pelicula" Role="Pelicula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Director">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pelicula">
+        <PropertyRef Name="DirectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PeliculaReparto">
+    <End Type="EjercicioMVC3Model.Pelicula" Role="Pelicula" Multiplicity="1" />
+    <End Type="EjercicioMVC3Model.Reparto" Role="Reparto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pelicula">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparto">
+        <PropertyRef Name="PeliculaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActorReparto">
+    <End Type="EjercicioMVC3Model.Actor" Role="Actor" Multiplicity="1" />
+    <End Type="EjercicioMVC3Model.Reparto" Role="Reparto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparto">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

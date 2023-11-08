@@ -1,0 +1,42 @@
+﻿@model EjercicioMVC3.Models.Reparto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reparto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Personaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pelicula.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pelicula.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actor.NombreActor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actor.NombreActor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

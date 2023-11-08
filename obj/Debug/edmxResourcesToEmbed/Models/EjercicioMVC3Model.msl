@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EjercicioMVC3ModelStoreContainer" CdmEntityContainer="EjercicioMVC3ModelContainer">
+    <EntitySetMapping Name="Actores">
+      <EntityTypeMapping TypeName="IsTypeOf(EjercicioMVC3Model.Actor)">
+        <MappingFragment StoreEntitySet="Actores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NombreActor" ColumnName="NombreActor" />
+          <ScalarProperty Name="Nacion" ColumnName="Nacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Directores">
+      <EntityTypeMapping TypeName="IsTypeOf(EjercicioMVC3Model.Director)">
+        <MappingFragment StoreEntitySet="Directores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NombreDirector" ColumnName="NombreDirector" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Nacion" ColumnName="Nacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Peliculas">
+      <EntityTypeMapping TypeName="IsTypeOf(EjercicioMVC3Model.Pelicula)">
+        <MappingFragment StoreEntitySet="Peliculas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Estreno" ColumnName="Estreno" />
+          <ScalarProperty Name="Nacion" ColumnName="Nacion" />
+          <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Resumen" ColumnName="Resumen" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="DirectorId" ColumnName="DirectorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repartos">
+      <EntityTypeMapping TypeName="IsTypeOf(EjercicioMVC3Model.Reparto)">
+        <MappingFragment StoreEntitySet="Repartos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Personaje" ColumnName="Personaje" />
+          <ScalarProperty Name="PeliculaId" ColumnName="PeliculaId" />
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36f87be6c5ca42179267b6b74cf77825" Name="Diagram1" >
+        <EntityTypeShape EntityType="EjercicioMVC3Model.Actor" Width="1.5" PointX="1.75" PointY="2.625" />
+        <EntityTypeShape EntityType="EjercicioMVC3Model.Director" Width="1.5" PointX="1.75" PointY="0.5" />
+        <EntityTypeShape EntityType="EjercicioMVC3Model.Pelicula" Width="1.5" PointX="6.375" PointY="0.5" />
+        <EntityTypeShape EntityType="EjercicioMVC3Model.Reparto" Width="1.5" PointX="4" PointY="2.25" />
+        <AssociationConnector Association="EjercicioMVC3Model.DirectorPelicula" />
+        <AssociationConnector Association="EjercicioMVC3Model.PeliculaReparto" />
+        <AssociationConnector Association="EjercicioMVC3Model.ActorReparto" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

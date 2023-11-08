@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    if (User.IsInRole("Admin"))
+    {
+        <ul class="navbar-nav flex-grow-1">
+            <li>@Html.ActionLink("Actores", "Index", "Actores", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Directores", "Index", "Directores", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Peliculas", "Index", "Peliculas", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Reparto", "Index", "Repartos", new { area = "" }, new { @class = "nav-link" })</li>
+        </ul>
+    }
+    if (User.IsInRole("Director"))
+    {
+        <ul class="navbar-nav flex-grow-1">
+            <li>@Html.ActionLink("Directores", "Index", "Directores", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Peliculas", "Index", "Peliculas", new { area = "" }, new { @class = "nav-link" })</li>
+        </ul>
+    }
+    if (User.IsInRole("Actor"))
+    {
+        <ul class="navbar-nav flex-grow-1">
+            <li>@Html.ActionLink("Actores", "Index", "Actores", new { area = "" }, new { @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Reparto", "Index", "Repartos", new { area = "" }, new { @class = "nav-link" })</li>
+        </ul>
+    }
+
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+            </li>
+            <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="navbar-nav navbar-right">
+        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+    </ul>
+}

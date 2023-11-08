@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EjercicioMVC3.Models.Pelicula>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Titulo
+        </th>
+        <th>
+           Estreno
+        </th>
+        <th>
+           Nacion
+        </th>
+        <th>
+           Idioma
+        </th>
+        <th>
+           Formato
+        </th>
+        <th>
+           Resumen
+        </th>
+        <th>
+           Observacion
+        </th>
+        <th>
+           Director
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estreno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Idioma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resumen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Director.NombreDirector)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
