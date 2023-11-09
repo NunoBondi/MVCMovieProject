@@ -214,25 +214,24 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-grid.rtl.css" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
-    <Content Include="Content\bootstrap-utilities.css" />
-    <Content Include="Content\bootstrap-utilities.min.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstrap.rtl.css" />
-    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\assets\favicon.ico" />
+    <Content Include="Content\assets\img\bg-masthead.jpg" />
+    <Content Include="Content\assets\img\portfolio\fullsize\1.jpg" />
+    <Content Include="Content\assets\img\portfolio\fullsize\2.jpg" />
+    <Content Include="Content\assets\img\portfolio\fullsize\3.jpg" />
+    <Content Include="Content\assets\img\portfolio\fullsize\4.jpg" />
+    <Content Include="Content\assets\img\portfolio\fullsize\5.jpg" />
+    <Content Include="Content\assets\img\portfolio\fullsize\6.jpg" />
+    <Content Include="Content\assets\img\portfolio\thumbnails\1.jpg" />
+    <Content Include="Content\assets\img\portfolio\thumbnails\2.jpg" />
+    <Content Include="Content\assets\img\portfolio\thumbnails\3.jpg" />
+    <Content Include="Content\assets\img\portfolio\thumbnails\4.jpg" />
+    <Content Include="Content\assets\img\portfolio\thumbnails\5.jpg" />
+    <Content Include="Content\assets\img\portfolio\thumbnails\6.jpg" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\js\scripts.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Models\EjercicioMVC3Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EjercicioMVC3Model.Context.cs</LastGenOutput>
@@ -322,27 +321,12 @@
     <Content Include="Views\Peliculas\Details.cshtml" />
     <Content Include="Views\Peliculas\Edit.cshtml" />
     <Content Include="Views\Peliculas\Index.cshtml" />
+    <Content Include="Views\Shared\_MainPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.rtl.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />

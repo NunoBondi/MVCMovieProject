@@ -6,9 +6,9 @@
 
 <main aria-labelledby="title">
     <h2 id="title">@ViewBag.Title.</h2>
-    <div class="row">
-        <div class="col-md-8">
-            <section id="loginForm">
+    <div class="row container-lg mx-auto">
+        <div class="col-md-8 container">
+            <section id="loginForm " >
                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
                 {
                     @Html.AntiForgeryToken()
